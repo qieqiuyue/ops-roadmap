@@ -28,6 +28,14 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Check script permissions
+        # A Windows checkout has core.fileMode=false, so a newly added script is committed
+        # without the executable bit and the steps below die with a bare exit code 126.
+        run: |
+          for script in scripts/*.sh; do
+            [ -x "${script}" ] || { echo "not executable: ${script}"; exit 1; }
+          done
+
       - name: Validate roadmap contract
         run: ./scripts/validate-roadmaps.sh
 
