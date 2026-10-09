@@ -14,13 +14,13 @@
 
 | 主分类 | 收录范围 |
 | --- | --- |
-| [`reliability/`](./reliability/) | SRE、SLA/SLO、高可用、容灾、多活、故障管理、应急响应和演练 |
-| [`observability/`](./observability/) | 指标、日志、Trace、告警、监控平台和可观测数据平台 |
-| [`devops/`](./devops/) | CI/CD、研发运营一体化、交付平台、自动化运维和 DevSecOps |
-| [`aiops/`](./aiops/) | 异常检测、根因分析、智能告警、自愈、运维大模型和 Agent |
-| [`cloud-native/`](./cloud-native/) | Kubernetes 运维、多云、混合云、云原生平台和架构转型 |
-| [`finops/`](./finops/) | 云成本、资源效能、容量治理和 FinOps 组织机制 |
-| [`engineering-management/`](./engineering-management/) | 技术管理、团队建设、工程效能和项目管理 |
+| [`reliability/`](./reliability/README.md) | SRE、SLA/SLO、高可用、容灾、多活、故障管理、应急响应和演练 |
+| [`observability/`](./observability/README.md) | 指标、日志、Trace、告警、监控平台和可观测数据平台 |
+| [`devops/`](./devops/README.md) | CI/CD、研发运营一体化、交付平台、自动化运维和 DevSecOps |
+| [`aiops/`](./aiops/README.md) | 异常检测、根因分析、智能告警、自愈、运维大模型和 Agent |
+| [`cloud-native/`](./cloud-native/README.md) | Kubernetes 运维、多云、混合云、云原生平台和架构转型 |
+| [`finops/`](./finops/README.md) | 云成本、资源效能、容量治理和 FinOps 组织机制 |
+| [`engineering-management/`](./engineering-management/README.md) | 技术管理、团队建设、工程效能和项目管理 |
 
 公司、行业和技术产品不是主分类。它们应写入标签或正文，避免同一案例被复制到多个目录。
 

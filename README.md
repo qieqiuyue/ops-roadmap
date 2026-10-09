@@ -64,29 +64,29 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 
 | 分类 | 主题 |
 | --- | --- |
-| 系统基础 | [计算机网络基础](./topics/systems/network-fundamentals/) · [容器核心技术](./topics/systems/container-fundamentals/) · [Linux 底层原理](./topics/systems/linux/) · [Linux 性能优化](./topics/systems/linux-performance/) · [eBPF 运维与故障排查](./topics/systems/ebpf/) |
-| 架构设计 | [架构设计学习指南](./topics/architecture/) |
-| 云原生 | [Docker](./topics/cloud-native/docker/) · [Helm](./topics/cloud-native/helm/) · [Kubernetes](./topics/cloud-native/kubernetes/) · [Kubernetes 容器网络](./topics/cloud-native/kubernetes-networking/) · [Consul](./topics/cloud-native/consul/) · [etcd](./topics/cloud-native/etcd/) · [Terraform](./topics/cloud-native/terraform/) |
-| 可观测性 | [ELK 与 OpenSearch](./topics/observability/elk/) · [Loki](./topics/observability/loki/) · [OpenTelemetry](./topics/observability/otel/) · [Prometheus](./topics/observability/prometheus/) · [Kube-Prometheus](./topics/observability/kube-prometheus/) · [VictoriaMetrics](./topics/observability/victoria-metrics/) · [VictoriaMetrics Flags](./topics/observability/victoria-metrics-flags/) · [VictoriaMetrics PromQL](./topics/observability/victoria-metrics-promql/) |
-| 数据系统 | [MySQL](./topics/data-systems/mysql/) · [Kafka](./topics/data-systems/kafka/) · [RabbitMQ](./topics/data-systems/rabbitmq/) |
-| 编程与自动化 | [Python 运维自动化与工程实践](./topics/programming/python-for-operations/) · [Go 运维开发与云原生工程](./topics/programming/go-for-operations/) |
-| 持续交付 | [Ansible](./topics/delivery/ansible/) · [Jenkins](./topics/delivery/jenkins/) · [GitOps](./topics/delivery/gitops/) · [Argo CD](./topics/delivery/argo-cd/) · [交付治理与容量保障](./topics/delivery/delivery-governance/) · [AI 原生 SDLC](./topics/delivery/ai-native-sdlc/) |
-| Web 基础设施 | [Nginx](./topics/web/nginx/) · [Traefik](./topics/web/traefik/) |
-| AI 基础设施 | [GPU AI Infrastructure](./topics/ai-infrastructure/gpu/) |
-| AIOps | [LLM-AIOps 中文学习路线](./topics/aiops/llm-aiops/) |
-| AI Agent | [DeepAgent](./topics/ai-agents/deepagent/) · [Claude Agent SDK](./topics/ai-agents/claude-agent-sdk/) · [Agent 扩展工程：Skills 与 MCP](./topics/ai-agents/agent-extensions/) |
+| 系统基础 | [计算机网络基础](./topics/systems/network-fundamentals/README.md) · [容器核心技术](./topics/systems/container-fundamentals/README.md) · [Linux 底层原理](./topics/systems/linux/README.md) · [Linux 性能优化](./topics/systems/linux-performance/README.md) · [eBPF 运维与故障排查](./topics/systems/ebpf/README.md) |
+| 架构设计 | [架构设计学习指南](./topics/architecture/README.md) |
+| 云原生 | [Docker](./topics/cloud-native/docker/README.md) · [Helm](./topics/cloud-native/helm/README.md) · [Kubernetes](./topics/cloud-native/kubernetes/README.md) · [Kubernetes 容器网络](./topics/cloud-native/kubernetes-networking/README.md) · [Consul](./topics/cloud-native/consul/README.md) · [etcd](./topics/cloud-native/etcd/README.md) · [Terraform](./topics/cloud-native/terraform/README.md) |
+| 可观测性 | [ELK 与 OpenSearch](./topics/observability/elk/README.md) · [Loki](./topics/observability/loki/README.md) · [OpenTelemetry](./topics/observability/otel/README.md) · [Prometheus](./topics/observability/prometheus/README.md) · [Kube-Prometheus](./topics/observability/kube-prometheus/README.md) · [VictoriaMetrics](./topics/observability/victoria-metrics/README.md) · [VictoriaMetrics Flags](./topics/observability/victoria-metrics-flags/README.md) · [VictoriaMetrics PromQL](./topics/observability/victoria-metrics-promql/README.md) |
+| 数据系统 | [MySQL](./topics/data-systems/mysql/README.md) · [Kafka](./topics/data-systems/kafka/README.md) · [RabbitMQ](./topics/data-systems/rabbitmq/README.md) |
+| 编程与自动化 | [Python 运维自动化与工程实践](./topics/programming/python-for-operations/README.md) · [Go 运维开发与云原生工程](./topics/programming/go-for-operations/README.md) |
+| 持续交付 | [Ansible](./topics/delivery/ansible/README.md) · [Jenkins](./topics/delivery/jenkins/README.md) · [GitOps](./topics/delivery/gitops/README.md) · [Argo CD](./topics/delivery/argo-cd/README.md) · [交付治理与容量保障](./topics/delivery/delivery-governance/README.md) · [AI 原生 SDLC](./topics/delivery/ai-native-sdlc/README.md) |
+| Web 基础设施 | [Nginx](./topics/web/nginx/README.md) · [Traefik](./topics/web/traefik/README.md) |
+| AI 基础设施 | [GPU AI Infrastructure](./topics/ai-infrastructure/gpu/README.md) |
+| AIOps | [LLM-AIOps 中文学习路线](./topics/aiops/llm-aiops/README.md) |
+| AI Agent | [DeepAgent](./topics/ai-agents/deepagent/README.md) · [Claude Agent SDK](./topics/ai-agents/claude-agent-sdk/README.md) · [Agent 扩展工程：Skills 与 MCP](./topics/ai-agents/agent-extensions/README.md) |
 
 ## 提示词资料库
 
-[`prompts/`](./prompts/) 收录七份面向 Agentic Coding 环境的模型专项提示词参考文档，覆盖 GPT-6 Astra（提示指南与 Agent 工作指令）、Codex / GPT-5.6、DeepSeek V4、Claude Fable 5.1、GLM-5.3 和 Kimi K3。资料库说明、模型用途、官方来源和安全提醒见 [`prompts/README.md`](./prompts/README.md)。这些文档是独立参考资料，不参与 `topics/` 学习笔记和 Roadmap 生成。
+[`prompts/`](./prompts/README.md) 收录七份面向 Agentic Coding 环境的模型专项提示词参考文档，覆盖 GPT-6 Astra（提示指南与 Agent 工作指令）、Codex / GPT-5.6、DeepSeek V4、Claude Fable 5.1、GLM-5.3 和 Kimi K3。资料库说明、模型用途、官方来源和安全提醒见 [`prompts/README.md`](./prompts/README.md)。这些文档是独立参考资料，不参与 `topics/` 学习笔记和 Roadmap 生成。
 
 
 ## 面试与简历准备
 
-[`interview/`](./interview/) 收录从写简历、准备面试，到现场回答与事后复盘的整理笔记：说明面试官想了解什么，怎样用真实经历作答，以及如何复盘每一轮面试。
+[`interview/`](./interview/README.md) 收录从写简历、准备面试，到现场回答与事后复盘的整理笔记：说明面试官想了解什么，怎样用真实经历作答，以及如何复盘每一轮面试。
 ## 企业案例库（整理中）
 
-[`cases/`](./cases/) 收录来自公开技术分享和文章的企业实践，按可靠性、可观测性、DevOps、AIOps、云原生、FinOps 与工程管理分类。案例保留具体组织和场景的约束，`topics/` 则负责把多个案例进一步提炼成通用学习笔记。
+[`cases/`](./cases/README.md) 收录来自公开技术分享和文章的企业实践，按可靠性、可观测性、DevOps、AIOps、云原生、FinOps 与工程管理分类。案例保留具体组织和场景的约束，`topics/` 则负责把多个案例进一步提炼成通用学习笔记。
 
 案例分为 `draft`、`reviewed` 和 `verified` 三种状态。当前从历史分享材料导入的案例均为 `draft`，表示已经完成归类和基础结构整理，但来源链接、ASR 内容和关键数据仍待核验，因此暂不计入上方学习笔记和 Roadmap 数量。
 
@@ -110,7 +110,7 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
                       交互式 Roadmap HTML
 ```
 
-- 企业案例先按 [`cases/`](./cases/) 的分类、状态和来源规范单独整理；积累多个已复核案例后，再提炼进相关学习主题。
+- 企业案例先按 [`cases/`](./cases/README.md) 的分类、状态和来源规范单独整理；积累多个已复核案例后，再提炼进相关学习主题。
 - Markdown 学习笔记遵循 [`learning-notes-builder`](https://github.com/luozijian1990/personal-skill/tree/main/skills/learning-notes-builder) 的结构与写作风格：使用 H2/H3 组织章节和小节，并结合详细讲解、图表与代码示例。
 - Roadmap HTML 通过 [`learning-roadmap`](https://github.com/luozijian1990/personal-skill/tree/main/skills/learning-roadmap) 从整理后的 Markdown 生成，提供章节卡片、详情阅读、搜索和本地进度记录。
 
@@ -189,7 +189,7 @@ node --test learning-paths/tests/curriculum.test.cjs
 
 页面共享的样式与脚本集中在 [`assets/roadmap.css`](./assets/roadmap.css) 与 [`assets/roadmap.js`](./assets/roadmap.js)；
 第三方库（MathJax 3.2.2 `tex-svg`、marked 15.0.12、highlight.js 11.9.0、Mermaid 10.9.8 UMD）已随仓库
-发布于 [`assets/vendor/`](./assets/vendor/)，页面**不发出任何外部请求**，离线可用；来源与校验值见
+发布于 [`assets/vendor/`](./assets/vendor/README.md)，页面**不发出任何外部请求**，离线可用；来源与校验值见
 [`assets/vendor/README.md`](./assets/vendor/README.md)。学习路线页提供进度导出/导入，首页提供
 「最近学习」与「其他内容」入口。
 

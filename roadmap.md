@@ -68,17 +68,17 @@ flowchart LR
 
 | 分类 | 主题（路线图册数） |
 | --- | --- |
-| 系统基础 | [计算机网络基础](topics/systems/network-fundamentals/)（3） · [容器核心技术](topics/systems/container-fundamentals/)（1） · [Linux 底层原理](topics/systems/linux/)（6） · [Linux 性能优化](topics/systems/linux-performance/)（2） · [eBPF 运维与故障排查](topics/systems/ebpf/)（1） |
-| 架构设计 | [架构设计](topics/architecture/)（5） |
-| 云原生 | [Docker](topics/cloud-native/docker/)（5） · [Helm](topics/cloud-native/helm/)（4） · [Kubernetes](topics/cloud-native/kubernetes/)（7） · [Kubernetes 容器网络](topics/cloud-native/kubernetes-networking/)（7） · [Consul](topics/cloud-native/consul/)（2） · [etcd](topics/cloud-native/etcd/)（2） · [Terraform](topics/cloud-native/terraform/)（1） |
-| 可观测性 | [ELK 与 OpenSearch](topics/observability/elk/)（4） · [Loki](topics/observability/loki/)（4） · [OpenTelemetry](topics/observability/otel/)（3） · [Prometheus](topics/observability/prometheus/)（1） · [Kube-Prometheus](topics/observability/kube-prometheus/)（1） · [VictoriaMetrics](topics/observability/victoria-metrics/)（3） · [VictoriaMetrics Flags](topics/observability/victoria-metrics-flags/)（1） · [VictoriaMetrics PromQL](topics/observability/victoria-metrics-promql/)（1） |
-| 数据系统 | [MySQL](topics/data-systems/mysql/)（1） · [Kafka](topics/data-systems/kafka/)（2） · [RabbitMQ](topics/data-systems/rabbitmq/)（2） |
-| 编程与自动化 | [Python 运维自动化与工程实践](topics/programming/python-for-operations/)（4） · [Go 运维开发与云原生工程](topics/programming/go-for-operations/)（5） |
-| 持续交付 | [Ansible](topics/delivery/ansible/)（2） · [Jenkins](topics/delivery/jenkins/)（2） · [GitOps](topics/delivery/gitops/)（2） · [Argo CD](topics/delivery/argo-cd/)（5） · [交付治理与容量保障](topics/delivery/delivery-governance/)（4） · [AI 原生 SDLC](topics/delivery/ai-native-sdlc/)（1） |
-| Web 基础设施 | [Nginx](topics/web/nginx/)（4） · [Traefik](topics/web/traefik/)（1） |
-| AI 基础设施 | [GPU AI Infrastructure](topics/ai-infrastructure/gpu/)（8） |
-| AIOps | [LLM-AIOps 中文学习路线](topics/aiops/llm-aiops/)（7） |
-| AI Agent | [DeepAgent](topics/ai-agents/deepagent/)（1） · [Claude Agent SDK](topics/ai-agents/claude-agent-sdk/)（1） · [Agent 扩展工程：Skills 与 MCP](topics/ai-agents/agent-extensions/)（2） |
+| 系统基础 | [计算机网络基础](topics/systems/network-fundamentals/README.md)（3） · [容器核心技术](topics/systems/container-fundamentals/README.md)（1） · [Linux 底层原理](topics/systems/linux/README.md)（6） · [Linux 性能优化](topics/systems/linux-performance/README.md)（2） · [eBPF 运维与故障排查](topics/systems/ebpf/README.md)（1） |
+| 架构设计 | [架构设计](topics/architecture/README.md)（5） |
+| 云原生 | [Docker](topics/cloud-native/docker/README.md)（5） · [Helm](topics/cloud-native/helm/README.md)（4） · [Kubernetes](topics/cloud-native/kubernetes/README.md)（7） · [Kubernetes 容器网络](topics/cloud-native/kubernetes-networking/README.md)（7） · [Consul](topics/cloud-native/consul/README.md)（2） · [etcd](topics/cloud-native/etcd/README.md)（2） · [Terraform](topics/cloud-native/terraform/README.md)（1） |
+| 可观测性 | [ELK 与 OpenSearch](topics/observability/elk/README.md)（4） · [Loki](topics/observability/loki/README.md)（4） · [OpenTelemetry](topics/observability/otel/README.md)（3） · [Prometheus](topics/observability/prometheus/README.md)（1） · [Kube-Prometheus](topics/observability/kube-prometheus/README.md)（1） · [VictoriaMetrics](topics/observability/victoria-metrics/README.md)（3） · [VictoriaMetrics Flags](topics/observability/victoria-metrics-flags/README.md)（1） · [VictoriaMetrics PromQL](topics/observability/victoria-metrics-promql/README.md)（1） |
+| 数据系统 | [MySQL](topics/data-systems/mysql/README.md)（1） · [Kafka](topics/data-systems/kafka/README.md)（2） · [RabbitMQ](topics/data-systems/rabbitmq/README.md)（2） |
+| 编程与自动化 | [Python 运维自动化与工程实践](topics/programming/python-for-operations/README.md)（4） · [Go 运维开发与云原生工程](topics/programming/go-for-operations/README.md)（5） |
+| 持续交付 | [Ansible](topics/delivery/ansible/README.md)（2） · [Jenkins](topics/delivery/jenkins/README.md)（2） · [GitOps](topics/delivery/gitops/README.md)（2） · [Argo CD](topics/delivery/argo-cd/README.md)（5） · [交付治理与容量保障](topics/delivery/delivery-governance/README.md)（4） · [AI 原生 SDLC](topics/delivery/ai-native-sdlc/README.md)（1） |
+| Web 基础设施 | [Nginx](topics/web/nginx/README.md)（4） · [Traefik](topics/web/traefik/README.md)（1） |
+| AI 基础设施 | [GPU AI Infrastructure](topics/ai-infrastructure/gpu/README.md)（8） |
+| AIOps | [LLM-AIOps 中文学习路线](topics/aiops/llm-aiops/README.md)（7） |
+| AI Agent | [DeepAgent](topics/ai-agents/deepagent/README.md)（1） · [Claude Agent SDK](topics/ai-agents/claude-agent-sdk/README.md)（1） · [Agent 扩展工程：Skills 与 MCP](topics/ai-agents/agent-extensions/README.md)（2） |
 
 ## 其他内容树
 
@@ -86,9 +86,9 @@ flowchart LR
 
 | 目录 | 内容 |
 | --- | --- |
-| [`cases/`](./cases/) | 企业实践案例，按可靠性、可观测性、DevOps、AIOps、云原生、FinOps 与工程管理分类 |
-| [`interview/`](./interview/) | 面试与简历准备：面试官视角、表达方式与复盘方法 |
-| [`prompts/`](./prompts/) | 面向 Agentic Coding 环境的模型专项提示词参考 |
+| [`cases/`](./cases/README.md) | 企业实践案例，按可靠性、可观测性、DevOps、AIOps、云原生、FinOps 与工程管理分类 |
+| [`interview/`](./interview/README.md) | 面试与简历准备：面试官视角、表达方式与复盘方法 |
+| [`prompts/`](./prompts/README.md) | 面向 Agentic Coding 环境的模型专项提示词参考 |
 | [`learning-paths/`](./learning-paths/) | 六条岗位学习路线、配套实验室与进度记录 |
 
 ## 保留的动画版

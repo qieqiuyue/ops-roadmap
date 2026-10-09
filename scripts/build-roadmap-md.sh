@@ -2,6 +2,9 @@
 #
 # Generate roadmap.md (the knowledge-map preview) from the catalog embedded in index.html,
 # so the preview can never drift from the navigation entry point.
+# Links to a topic directory are emitted as links to its README.md, because GitHub Pages
+# serves no directory indexes (`.nojekyll`); directories with an entry `index.html` keep
+# the directory form.
 #
 # Usage:
 #   ./scripts/build-roadmap-md.sh          # rewrite roadmap.md
@@ -34,6 +37,15 @@ categories = len(catalog)
 topics = sum(len(c["topics"]) for c in catalog)
 items = sum(len(t["items"]) for c in catalog for t in c["topics"])
 
+# Directory URLs have no index on GitHub Pages (see .nojekyll), so a catalogue entry
+# points at the directory README.md instead; directories that ship an index.html entry
+# page keep the plain directory form.
+def doc_link(directory: str) -> str:
+    target = ROOT / directory
+    if (target / "README.md").is_file() and not (target / "index.html").is_file():
+        return directory + "README.md"
+    return directory
+
 lines = []
 lines.append("# Ops Roadmap 思维导图预览")
 lines.append("")
@@ -63,9 +75,8 @@ lines.append("| --- | --- |")
 for category in catalog:
     cells = []
     for topic in category["topics"]:
-        directory = topic["items"][0][1].split("/")
-        directory = "/".join(directory[:-1]) + "/"
-        cells.append(f"[{topic['name']}]({directory})（{len(topic['items'])}）")
+        directory = "/".join(topic["items"][0][1].split("/")[:-1]) + "/"
+        cells.append(f"[{topic['name']}]({doc_link(directory)})（{len(topic['items'])}）")
     lines.append(f"| {category['name']} | " + " · ".join(cells) + " |")
 lines.append("")
 lines.append("## 其他内容树")
@@ -74,9 +85,9 @@ lines.append("`topics/` 之外还有四棵内容树，它们不参与 Roadmap �
 lines.append("")
 lines.append("| 目录 | 内容 |")
 lines.append("| --- | --- |")
-lines.append("| [`cases/`](./cases/) | 企业实践案例，按可靠性、可观测性、DevOps、AIOps、云原生、FinOps 与工程管理分类 |")
-lines.append("| [`interview/`](./interview/) | 面试与简历准备：面试官视角、表达方式与复盘方法 |")
-lines.append("| [`prompts/`](./prompts/) | 面向 Agentic Coding 环境的模型专项提示词参考 |")
+lines.append("| [`cases/`](./cases/README.md) | 企业实践案例，按可靠性、可观测性、DevOps、AIOps、云原生、FinOps 与工程管理分类 |")
+lines.append("| [`interview/`](./interview/README.md) | 面试与简历准备：面试官视角、表达方式与复盘方法 |")
+lines.append("| [`prompts/`](./prompts/README.md) | 面向 Agentic Coding 环境的模型专项提示词参考 |")
 lines.append("| [`learning-paths/`](./learning-paths/) | 六条岗位学习路线、配套实验室与进度记录 |")
 lines.append("")
 lines.append("## 保留的动画版")

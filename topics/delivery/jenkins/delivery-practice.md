@@ -1967,10 +1967,10 @@ approvedForProductionChange: false
 
 | 问题 | 继续学习 |
 | --- | --- |
-| Ansible Inventory、Playbook、批次和故障控制 | [Ansible 专题](../ansible/) |
-| Docker 镜像、容器与运行时基础 | [Docker 专题](../../cloud-native/docker/) |
-| Kubernetes 工作负载、Service、RBAC 和排障 | [Kubernetes 专题](../../cloud-native/kubernetes/) |
-| Helm Chart、Release、仓库、安全和命令排障 | [Helm 专题](../../cloud-native/helm/) |
+| Ansible Inventory、Playbook、批次和故障控制 | [Ansible 专题](../ansible/README.md) |
+| Docker 镜像、容器与运行时基础 | [Docker 专题](../../cloud-native/docker/README.md) |
+| Kubernetes 工作负载、Service、RBAC 和排障 | [Kubernetes 专题](../../cloud-native/kubernetes/README.md) |
+| Helm Chart、Release、仓库、安全和命令排障 | [Helm 专题](../../cloud-native/helm/README.md) |
 
 使用这些专题时仍保持同一交付原则：
 
