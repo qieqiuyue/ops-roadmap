@@ -23,6 +23,13 @@
     .links{display:grid;gap:8px}.roadmap{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px;border:1px solid var(--rule);border-radius:6px;text-decoration:none;background:#fffaf0;transition:.15s ease}.roadmap:hover{transform:translate(-1px,-1px);box-shadow:2px 2px 0 var(--ink);border-color:var(--ink)}
     .roadmap small{display:block;color:var(--muted);margin-top:3px}.arrow{font-size:18px}.source{font-size:12px;color:var(--muted);text-decoration:none}.source:hover{text-decoration:underline}.special{background:#fff3bd;border-color:var(--ink)}
     footer{padding:24px clamp(20px,6vw,80px);border-top:2px dashed var(--ink);color:var(--muted);font-size:13px}@media(max-width:640px){header{padding-top:38px}.toolbar{align-items:stretch}.filters{width:100%}}
+    .extras{max-width:1500px;margin:0 auto;padding:8px clamp(20px,6vw,80px) 28px}
+    .extras h2{font-size:15px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+    .recent{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .recent li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:8px 10px;border:1px solid var(--rule);border-radius:6px;background:#fffaf0}
+    .recent a{text-decoration:none;font-weight:600}
+    .recent a:hover{text-decoration:underline}
+    .recent small{color:var(--muted);font-size:12px;white-space:nowrap}
   </style>
 </head>
 <body>
@@ -38,6 +45,19 @@
   <div class="filters" id="filters"></div>
 </div>
 <main id="catalog"></main>
+<section class="extras" id="extras" hidden>
+  <h2>最近学习</h2>
+  <ul class="recent" id="recent"></ul>
+</section>
+<section class="extras">
+  <h2>其他内容</h2>
+  <ul class="recent">
+    <li><a href="learning-paths/index.html">六条岗位学习路线</a><small>按阶段学习、实践验收与进度记录</small></li>
+    <li><a href="cases/">企业实践案例</a><small>可靠性、可观测性、DevOps、AIOps、云原生、FinOps 与工程管理</small></li>
+    <li><a href="interview/">面试与简历准备</a><small>面试官视角、表达方式与复盘方法</small></li>
+    <li><a href="prompts/">提示词资料库</a><small>面向 Agentic Coding 环境的模型专项参考</small></li>
+  </ul>
+</section>
 <footer>学习进度保存在当前浏览器的 localStorage 中。通过本地 HTTP 服务或 GitHub Pages 访问，可获得更稳定的跨页面体验。</footer>
 <script>
 const catalog = [
@@ -93,7 +113,7 @@ function syncUrl(){
   const query=document.getElementById('search').value.trim();
   if(query)params.set('q',query);
   const search=params.toString();
-  history.replaceState(null,'',search?location.pathname+'?'+search:location.pathname);
+  try{history.replaceState(null,'',search?location.pathname+'?'+search:location.pathname)}catch(error){}
 }
 function sourceFor(href){return href.replace(/-roadmap\.html$/,'.md')}
 function render(){
@@ -119,6 +139,20 @@ if(urlState.get('topic')&&[...catalog.map(c=>c.id)].includes(urlState.get('topic
 }
 if(urlState.get('q'))document.getElementById('search').value=urlState.get('q');
 applyFilter();
+
+/* 最近学习与其他内容入口（对应可选方向 4、5） */
+(function(){
+  const box=document.getElementById('extras');
+  const list=document.getElementById('recent');
+  if(!box||!list)return;
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let entries=[];
+  try{entries=JSON.parse(localStorage.getItem('roadmap:recent')||'[]')}catch(e){entries=[]}
+  entries=Array.isArray(entries)?entries.filter(e=>e&&e.path&&e.title).slice(0,6):[];
+  if(!entries.length)return;
+  list.innerHTML=entries.map(e=>`<li><a href="${esc(e.path)}">${esc(e.title)}</a><small>${esc(new Date(e.at).toLocaleString())}</small></li>`).join('');
+  box.hidden=false;
+})();
 </script>
 </body>
 </html>

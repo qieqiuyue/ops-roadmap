@@ -152,3 +152,7 @@
 /* Screen-reader-only helper for text that must stay invisible. */
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;
   overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* 本地渲染库缺失时的降级提示（配合 assets/vendor/） */
+.vendor-warning{margin:0 0 18px;padding:10px 14px;border:1px solid var(--ink);border-left-width:6px;
+  background:#fff4d6;border-radius:6px;font-size:13px;line-height:1.6}

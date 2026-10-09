@@ -118,12 +118,13 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 ├── index.html                      # 全部路线图入口
 ├── roadmap.md                      # topics/ 知识版图思维导图
 ├── AGENTS.md                       # 仓库约定与协作说明
-├── assets/                         # 首页预览图与 Roadmap 共享样式/脚本
+├── assets/                         # 首页预览图、共享样式/脚本与本地第三方库
+├── assets/vendor/                  # 随仓库发布的 MathJax / marked / highlight.js / Mermaid
 ├── cases/                          # 分类后的企业实践案例库
 ├── prompts/                        # 模型专项双语提示词资料库
 ├── interview/                      # 面试与简历准备笔记
 ├── learning-paths/                 # 六条岗位学习路线、使用说明与截图
-├── docs/                           # 维护记录与代理约定（内部文档）
+├── docs/                           # 维护记录、决策记录（ADR）与代理约定（内部文档）
 ├── scripts/build-roadmaps.sh       # Roadmap 批量生成脚本
 ├── scripts/refresh-roadmap-payloads.sh  # 仅刷新页面内嵌数据载荷
 ├── scripts/validate-roadmaps.sh    # 生成契约校验（笔记、回链、index、载荷、表格）
@@ -184,6 +185,11 @@ node --test learning-paths/tests/curriculum.test.cjs
 ```
 
 页面共享的样式与脚本集中在 [`assets/roadmap.css`](./assets/roadmap.css) 与 [`assets/roadmap.js`](./assets/roadmap.js)；
-第三方库固定到精确版本并带 `integrity`（MathJax 3.2.2、marked 15.0.12、highlight.js 11.9.0），
-Mermaid 因 ESM 分片加载只固定版本。学习路线页还提供进度导出/导入。
+第三方库（MathJax 3.2.2 `tex-svg`、marked 15.0.12、highlight.js 11.9.0、Mermaid 10.9.8 UMD）已随仓库
+发布于 [`assets/vendor/`](./assets/vendor/)，页面**不发出任何外部请求**，离线可用；来源与校验值见
+[`assets/vendor/README.md`](./assets/vendor/README.md)。学习路线页提供进度导出/导入，首页提供
+「最近学习」与「其他内容」入口。
+
+[`.markdownlint.json`](./.markdownlint.json) 是编辑器可选配置，**未接入 CI**：现有笔记的围栏语言与
+空行风格会触发较多提示，需要单独一轮整理后才适合作为门禁。
 

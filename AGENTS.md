@@ -44,11 +44,21 @@ After regeneration, verify that:
 `topics/cloud-native/kubernetes/full-animated-roadmap.html` is the preserved complete animation edition. Do not overwrite it with the standard roadmap builder. Keep its `roadmap-animations/` sidecar and screenshots together with it.
 
 The 118 standard pages share their stylesheet and application script in `assets/roadmap.css` and
-`assets/roadmap.js`; the payload refresh above does not touch them. Third-party libraries are pinned
-to exact versions (`mathjax@3.2.2`, `marked@15.0.12`, `highlight.js@11.9.0`) and carry
-`integrity`/`crossorigin`; Mermaid is pinned only, because its ESM entry loads a sibling chunk.
+`assets/roadmap.js`; the payload refresh above does not touch them. All third-party libraries are
+vendored under `assets/vendor/` (MathJax 3.2.2 `tex-svg`, marked 15.0.12, highlight.js 11.9.0 and
+Mermaid 10.9.8 UMD), so pages make no external requests and work offline; `assets/vendor/README.md`
+records sources, checksums and the upgrade procedure. `assets/roadmap.js` shows a `.vendor-warning`
+banner when a library is missing instead of failing silently.
 `roadmap.md` is generated from the `index.html` catalog by `./scripts/build-roadmap-md.sh` and is
 checked by `./scripts/validate-roadmaps.sh`.
+
+`./scripts/build-roadmaps.sh` refreshes only the data payload of pages that already use the
+shared-asset template; pass `--full-template` to rebuild whole pages with the upstream template
+(which re-inlines the stylesheet/script and restores CDN URLs).
+
+Deferred optimisation directions and their reasons are recorded in
+`docs/adr/0001-optional-directions-scope.md`; `.markdownlint.json` is an editor-side opt-in and is
+intentionally not wired into CI.
 
 Check the contract with:
 

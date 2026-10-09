@@ -34,8 +34,8 @@ jobs:
       - name: Validate topic READMEs
         run: ./scripts/validate-topic-readmes.sh
 
-      - name: Validate cases
-        run: ./scripts/validate-cases.sh
+      - name: Validate cases (strict)
+        run: ./scripts/validate-cases.sh --strict
 
       - name: Learning-path curriculum tests
         run: node --test learning-paths/tests/curriculum.test.cjs

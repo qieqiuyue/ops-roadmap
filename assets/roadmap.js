@@ -741,3 +741,41 @@
     enhance();
   }
 })();
+
+/* --- local vendor guard and recent-learning bookkeeping --- */
+(function () {
+  'use strict';
+  var missing = [];
+  if (!window.marked) missing.push('marked');
+  if (!window.hljs) missing.push('highlight.js');
+  if (!window.__mermaid) missing.push('mermaid');
+  if (!window.MathJax) missing.push('MathJax');
+  if (missing.length) {
+    var warning = document.createElement('div');
+    warning.className = 'vendor-warning';
+    warning.setAttribute('role', 'status');
+    warning.textContent = '本地渲染库未加载（' + missing.join('、') +
+      '）：请检查 assets/vendor/ 是否完整，代码高亮、图表或公式可能不可用。';
+    var host = document.querySelector('main') || document.body;
+    host.insertBefore(warning, host.firstChild);
+  }
+
+  try {
+    var dataEl = document.getElementById('data');
+    var back = document.querySelector('a.back');
+    if (!dataEl || !back || !window.localStorage) return;
+    var title = JSON.parse(dataEl.textContent).title;
+    var rootHref = new URL(back.getAttribute('href'), location.href).href;
+    var rootDir = rootHref.slice(0, rootHref.length - 'index.html'.length);
+    if (!title || location.href.slice(0, rootDir.length) !== rootDir) return;
+    var relative = location.href.slice(rootDir.length).split('#')[0].split('?')[0];
+    var recent = JSON.parse(localStorage.getItem('roadmap:recent') || '[]');
+    recent = (Array.isArray(recent) ? recent : []).filter(function (entry) {
+      return entry && entry.path !== relative;
+    });
+    recent.unshift({ path: relative, title: title, at: new Date().toISOString() });
+    localStorage.setItem('roadmap:recent', JSON.stringify(recent.slice(0, 12)));
+  } catch (error) {
+    /* file:// 或隐私模式下 localStorage 可能不可用：静默跳过 */
+  }
+})();
