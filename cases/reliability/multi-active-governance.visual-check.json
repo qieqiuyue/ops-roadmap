@@ -6,7 +6,7 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/multi-active-governance.html",
+    "path": "temp/archify/multi-active-governance.html",
     "sha256": "cf6ea289a2f68b7d56fce8138379ef7d3d191e6cb2255d0f00d56e1134f5b87f",
     "bytes": 723827
   },
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "/Users/luozijian/git/ops-roadmap/temp/archify/multi-active-governance.html"
+        "artifact": "temp/archify/multi-active-governance.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with signal SIGABRT\nChrome process: signal SIGABRT."

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Local learning fixture, not an Internet-facing application server. Python 3.9+."""
 import argparse
+from contextlib import closing
 import json
 import os
 from pathlib import Path
@@ -12,7 +13,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 def initialize(path):
     path.parent.mkdir(parents=True, exist_ok=True)
-    with sqlite3.connect(path) as db:
+    with closing(sqlite3.connect(path)) as db, db:
         db.execute('CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, name TEXT NOT NULL)')
         db.execute('INSERT OR IGNORE INTO items VALUES (1, ?)', ('first-deployment',))
 
@@ -50,7 +51,7 @@ def make_server(host, port, state, version):
                     if fault == 'slow' and path != '/readyz':
                         time.sleep(1)
                     # Read-only open prevents a missing database from silently becoming a new empty one.
-                    with sqlite3.connect((state / 'app.db').resolve().as_uri() + '?mode=ro', uri=True) as db:
+                    with closing(sqlite3.connect((state / 'app.db').resolve().as_uri() + '?mode=ro', uri=True)) as db:
                         items = [{'id': row[0], 'name': row[1]} for row in db.execute('SELECT id, name FROM items ORDER BY id')]
                     body = {'ready': True} if path == '/readyz' else {'version': version, 'items': items}
                 else:

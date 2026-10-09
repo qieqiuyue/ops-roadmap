@@ -742,16 +742,16 @@ groups:
 
 | 变量                                                                                | 描述           | 示例                                        |
 | ----------------------------------------------------------------------------------- | -------------- | ------------------------------------------- |
-| `$value` / `.Value` | 当前告警的值 | `Number of connections is {{ $value }}`  |                |                                             |
-| `$activeAt` / `.ActiveAt` | 告警激活时间 | `{{ $activeAt.UnixMilli }}`        |                |                                             |
+| `$value` / `.Value` | 当前告警的值 | `Number of connections is {{ $value }}` |
+| `$activeAt` / `.ActiveAt` | 告警激活时间 | `{{ $activeAt.UnixMilli }}` |
 | `$labels` / `.Labels`                                                           | 告警标签列表   | `{{ .Labels.instance }}`                  |
 | `$type` / `.Type`                                                               | 规则类型       | `{{ .Type }}` (prometheus/graphite/vlogs) |
 | `$alertID` / `.AlertID`                                                         | 告警 ID        | `{{ .AlertID }}`                          |
 | `$groupID` / `.GroupID`                                                         | 组 ID          | `{{ .GroupID }}`                          |
-| `$expr` / `.Expr` | 告警表达式 | `{{ $expr\|queryEscape }}`                    |                |                                             |
+| `$expr` / `.Expr` | 告警表达式 | `{{ $expr\|queryEscape }}` |
 | `$for` / `.For`                                                                 | `for` 参数值 | `{{ .For }}`                              |
-| `$externalLabels` / `.ExternalLabels` | 外部标签 | `{{ $externalLabels.dc }}` |                |                                             |
-| `$externalURL` / `.ExternalURL` | 外部 URL | `{{ $externalURL }}`             |                |                                             |
+| `$externalLabels` / `.ExternalLabels` | 外部标签 | `{{ $externalLabels.dc }}` |
+| `$externalURL` / `.ExternalURL` | 外部 URL | `{{ $externalURL }}` |
 
 #### 5.5.2 模板函数
 

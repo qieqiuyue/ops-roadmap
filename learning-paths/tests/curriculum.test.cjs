@@ -32,8 +32,10 @@ test('all curriculum nodes have unique stable IDs, complete acceptance and valid
     const target=path.resolve(root,file.startsWith('labs/')?file:'../topics/'+file);
     assert(fs.existsSync(target),n.id+' '+target);
     if(anchor&&file.endsWith('.md')){
-     const headings=fs.readFileSync(target,'utf8').split('\n').filter(l=>/^#+ /.test(l)).map(l=>l.replace(/^#+ /,'').toLowerCase().replace(/ /g,'-'));
-     const explicit=[...fs.readFileSync(target,'utf8').matchAll(/<a id="([^"]+)"/g)].map(match=>match[1]);
+     const text=fs.readFileSync(target,'utf8');
+     const lines=text.split(/\r?\n/);
+     const headings=lines.filter(l=>/^#+ /.test(l)).map(l=>l.replace(/^#+ /,'').replace(/\r$/,'').toLowerCase().replace(/ /g,'-'));
+     const explicit=[...text.matchAll(/<a id="([^"]+)"/g)].map(match=>match[1]);
      assert(headings.includes(anchor)||explicit.includes(anchor),n.id+' '+anchor);
     }
    }

@@ -564,7 +564,7 @@ Application：
 
 先配置仓库 Secret、目标集群凭据、AppProject 和一个手工同步的 Application。依次验证仓库认证、manifest 渲染、目标 API 读权限、diff 和同步写权限，最后才开启 automated。验收点不是页面显示绿色，而是能从 Git revision 追到 manifest、资源 owner、集群对象和最终健康条件。
 
-## 第一册配置参考与排障手册
+## 附录：配置参考与排障手册
 
 这一部分把源材料中分散的字段、命令和故障表现整理成可查阅的运行手册。示例中的域名、Token 和集群地址均为占位符，不能直接用于生产。
 

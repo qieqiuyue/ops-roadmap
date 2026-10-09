@@ -6,7 +6,7 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/unified-cloud-native-observability.html",
+    "path": "temp/archify/unified-cloud-native-observability.html",
     "sha256": "bd70065b5a3565df89aa184e8af921b59fd0ab86c7506c1ca3a6f75473147c5e",
     "bytes": 722280
   },
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "/Users/luozijian/git/ops-roadmap/temp/archify/unified-cloud-native-observability.html"
+        "artifact": "temp/archify/unified-cloud-native-observability.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with signal SIGABRT\nChrome process: signal SIGABRT."

@@ -6,7 +6,7 @@
   "status": "pass",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/bank-business-middle-platform.html",
+    "path": "temp/archify/bank-business-middle-platform.html",
     "sha256": "1b1e6ede3cee65ce0c492f7a9447c2ecde2c35a80ac81fc0b5dc06de180a2e12",
     "bytes": 720680
   },

@@ -4728,9 +4728,9 @@ curl http://vmselect:8481/metrics | grep vm_app_version
 
 ## 附录
 
-## A. 参考资源
+### A. 参考资源
 
-### 概述
+#### 概述
 
 
 - [VictoriaMetrics 官方文档](https://docs.victoriametrics.com/)

@@ -797,7 +797,7 @@ Patterns 是集合表达式。它只能选择 Inventory 已知的主机，不会
 | 两组交集 | `webservers:&staging` |
 | 组合选择 | `webservers:dbservers:&staging:!disabled` |
 | 通配符 | `*.example.com` |
-| 正则表达式 | `~(web|db).*\.example\.com` |
+| 正则表达式 | `~(web\|db).*\.example\.com` |
 
 Shell 会解释 `!`、`*` 等字符，复杂 Pattern 应使用单引号：
 

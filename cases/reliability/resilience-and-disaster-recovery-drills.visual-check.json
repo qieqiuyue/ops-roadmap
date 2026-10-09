@@ -6,7 +6,7 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/resilience-and-disaster-recovery-drills.html",
+    "path": "temp/archify/resilience-and-disaster-recovery-drills.html",
     "sha256": "ae3857cc72c911b8be0c6909f89e657c6dfbce3fbfb6b4cdec12de538651a2a1",
     "bytes": 723950
   },
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "/Users/luozijian/git/ops-roadmap/temp/archify/resilience-and-disaster-recovery-drills.html"
+        "artifact": "temp/archify/resilience-and-disaster-recovery-drills.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with signal SIGABRT\nChrome process: signal SIGABRT."

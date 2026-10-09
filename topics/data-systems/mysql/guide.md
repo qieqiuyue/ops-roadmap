@@ -4795,5 +4795,3 @@ SHOW STATUS LIKE 'threads_created';
 > 建议设置监控告警，当自增ID使用率超过80%时及时扩容或迁移。
 
 ---
-
-```

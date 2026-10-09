@@ -3466,5 +3466,3 @@ graph TB
     Isolation --> Kernel
     Limit --> Kernel
 ```
-
-```

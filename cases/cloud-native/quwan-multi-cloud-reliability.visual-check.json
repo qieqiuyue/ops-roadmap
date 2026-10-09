@@ -6,7 +6,7 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/quwan-multi-cloud-reliability.html",
+    "path": "temp/archify/quwan-multi-cloud-reliability.html",
     "sha256": "f274f277a209ff7ae98f4885d71d0bab26a4839d224f1061720a07c8e3272353",
     "bytes": 716872
   },
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "/Users/luozijian/git/ops-roadmap/temp/archify/quwan-multi-cloud-reliability.html"
+        "artifact": "temp/archify/quwan-multi-cloud-reliability.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with signal SIGABRT\nChrome process: signal SIGABRT."

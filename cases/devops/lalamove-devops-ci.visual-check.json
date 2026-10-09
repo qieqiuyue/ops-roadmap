@@ -6,7 +6,7 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/lalamove-devops-ci.html",
+    "path": "temp/archify/lalamove-devops-ci.html",
     "sha256": "b49ad00e62fdb433337a8905bc7348a37bc5d7267c9b7839e55d0741783ffb55",
     "bytes": 728538
   },
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "/Users/luozijian/git/ops-roadmap/temp/archify/lalamove-devops-ci.html"
+        "artifact": "temp/archify/lalamove-devops-ci.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with signal SIGABRT\nChrome process: signal SIGABRT."

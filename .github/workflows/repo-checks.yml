@@ -1,0 +1,47 @@
+name: Repository checks
+
+# Enforces the contract in AGENTS.md on every push and pull request:
+#  * roadmap parity, back links, catalog coverage and payload validity
+#  * topic README rules and case rules
+#  * learning-path curriculum tests and lab fixture tests
+#
+# The payload-freshness check needs the external builder and is therefore not run here.
+# Run it locally after editing notes:
+#   LEARNING_ROADMAP_BUILDER=/path/to/build_roadmap.py ./scripts/refresh-roadmap-payloads.sh --check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate roadmap contract
+        run: ./scripts/validate-roadmaps.sh
+
+      - name: Validate topic READMEs
+        run: ./scripts/validate-topic-readmes.sh
+
+      - name: Validate cases
+        run: ./scripts/validate-cases.sh
+
+      - name: Learning-path curriculum tests
+        run: node --test learning-paths/tests/curriculum.test.cjs
+
+      - name: Lab fixture tests
+        run: |
+          python -m pip install --quiet pytest
+          cd learning-paths/labs
+          python -m pytest tests/ -q

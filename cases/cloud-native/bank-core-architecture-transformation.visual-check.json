@@ -6,7 +6,7 @@
   "status": "pass",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/bank-core-architecture-transformation.html",
+    "path": "temp/archify/bank-core-architecture-transformation.html",
     "sha256": "d13263554c2f0be4061623cea050dbe5ea650fb047e10c6b663491ca883c88da",
     "bytes": 717702
   },

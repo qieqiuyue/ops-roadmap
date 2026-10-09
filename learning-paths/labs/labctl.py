@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Bounded fixture controls: affect only the explicitly selected lab state directory."""
 import argparse
+from contextlib import closing
 import json
 from pathlib import Path
 import sqlite3
@@ -14,10 +15,10 @@ def copy_database(source, target):
         raise ValueError('目标已存在，请选择新的恢复或备份文件')
     target.parent.mkdir(parents=True, exist_ok=True)
     try:
-        with sqlite3.connect(source.resolve().as_uri() + '?mode=ro', uri=True) as src:
+        with closing(sqlite3.connect(source.resolve().as_uri() + '?mode=ro', uri=True)) as src:
             if src.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
                 raise ValueError('源数据库完整性检查失败')
-            with sqlite3.connect(target) as dst:
+            with closing(sqlite3.connect(target)) as dst, dst:
                 src.backup(dst)
                 if dst.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
                     raise ValueError('目标数据库完整性检查失败')
@@ -47,7 +48,7 @@ def main():
         elif args.action == 'add':
             if not 1 <= len(args.name) <= 200:
                 raise ValueError('记录名称须为 1–200 字符')
-            with sqlite3.connect((state / 'app.db').as_uri() + '?mode=rw', uri=True) as db:
+            with closing(sqlite3.connect((state / 'app.db').as_uri() + '?mode=rw', uri=True)) as db, db:
                 db.execute('INSERT INTO items(name) VALUES (?)', (args.name,))
             print('已新增记录：' + args.name)
         elif args.action == 'backup':

@@ -2,7 +2,7 @@
 
 固定基线：Traefik 3.6.25、Python 3.12.12、grpcio 1.76.0、websockets 15.0.1、dnslib 0.9.26、Nginx 1.28.0、Prometheus 3.5.0、Collector 0.123.0、Consul 1.21.5。依赖 Docker Compose v2、curl、Python3、支持 `-addext` 的 OpenSSL；可选 dig、kubectl/Helm、独立 Swarm。镜像首次构建和拉取需要网络。
 
-[返回笔记](../guide.md) · [整改验收记录](../../../../docs/traefik/reviews/39-chapters-remediation-2026-09-07.md)
+[返回笔记](../guide.md)
 
 ## 启动与清理
 

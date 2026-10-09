@@ -30,7 +30,8 @@ while IFS= read -r -d '' case_file; do
     fail "first line is not H1: cases/${relative}"
   fi
 
-  if ! rg -Fq "(./${filename})" "${cases_root}/${category}/README.md"; then
+  # ripgrep is not installed everywhere; grep -F is an equivalent fixed-string search here.
+  if ! grep -Fq -- "(./${filename})" "${cases_root}/${category}/README.md"; then
     fail "missing from category README: cases/${relative}"
   fi
 done < <(

@@ -6,7 +6,7 @@
   "status": "pass",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/k8s-cost-optimization.html",
+    "path": "temp/archify/k8s-cost-optimization.html",
     "sha256": "32097a0c1cf8907c1eb0b56853e854b75f5edde59c38cf9739d7f00ab8157ee3",
     "bytes": 721177
   },

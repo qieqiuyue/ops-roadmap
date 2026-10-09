@@ -1,0 +1,15 @@
+# Normalize every text file to LF both in the repository and in working trees.
+# Without this file the checkout line endings depend on each contributor's core.autocrlf,
+# which breaks line-based parsing (for example learning-paths/tests/curriculum.test.cjs
+# derives heading anchors from readFileSync().split('\n')).
+* text=auto eol=lf
+
+# Binary assets must never be normalized or diffed as text.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary

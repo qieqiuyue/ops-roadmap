@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from contextlib import closing
 import sqlite3
 import subprocess
 import sys
@@ -56,7 +57,7 @@ class LabTests(unittest.TestCase):
         self.assertEqual(self.cli('backup', str(backup)).returncode, 0)
         self.assertEqual(self.cli('add', "new ' quoted row").returncode, 0)
         self.assertEqual(self.cli('restore', str(backup), str(restored)).returncode, 0)
-        with sqlite3.connect(restored) as db:
+        with closing(sqlite3.connect(restored)) as db:
             self.assertEqual(db.execute('SELECT count(*) FROM items').fetchone()[0], 1)
         self.assertEqual(len(json.loads(self.request('/api/items')[1])['items']), 2)
         self.assertNotEqual(self.cli('restore', str(backup), str(restored)).returncode, 0)

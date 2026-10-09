@@ -6,7 +6,7 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/pingan-disaster-recovery-switch.html",
+    "path": "temp/archify/pingan-disaster-recovery-switch.html",
     "sha256": "b12b3e430290bf78ca051158fce0cc44178a4015863fd943bad97ac2c2c6dd5b",
     "bytes": 719750
   },
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "/Users/luozijian/git/ops-roadmap/temp/archify/pingan-disaster-recovery-switch.html"
+        "artifact": "temp/archify/pingan-disaster-recovery-switch.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with signal SIGABRT\nChrome process: signal SIGABRT."

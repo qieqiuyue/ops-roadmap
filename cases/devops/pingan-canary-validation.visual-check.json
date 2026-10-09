@@ -6,7 +6,7 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/pingan-canary-validation.html",
+    "path": "temp/archify/pingan-canary-validation.html",
     "sha256": "7c68c043248af19ebfa48d8ca5207e2c2ea9701e88620f0c47fe608bf7790732",
     "bytes": 716539
   },
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "/Users/luozijian/git/ops-roadmap/temp/archify/pingan-canary-validation.html"
+        "artifact": "temp/archify/pingan-canary-validation.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with signal SIGABRT\nChrome process: signal SIGABRT."

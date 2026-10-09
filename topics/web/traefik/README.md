@@ -7,8 +7,6 @@
 - [完整中文学习笔记](guide.md)
 - [交互式学习路线图](guide-roadmap.html)
 - [章节与来源大纲](outline.md)
-- [原始审查报告](../../../docs/traefik/reviews/39-chapters-review-2026-09-07.md)
-- [本次整改与验收记录](../../../docs/traefik/reviews/39-chapters-remediation-2026-09-07.md)
 - [统一可运行实验包](lab/README.md)
 - [返回总目录](../../../index.html)
 
@@ -66,6 +64,6 @@
 
 材料主体使用 Traefik 3.6 语境，但部分安装示例、支持日期和配置片段存在旧版本残留。正文标明相关边界，采用 v3 规则，并区分 Proxy 内置功能、Hub 功能与实验性能力。
 
-本次整改在 Traefik 3.6.25 的隔离 Compose 环境验证了路径、HTTP/HTTPS认证、双腿mTLS与负向握手、证书轮换、WRR/镜像/Failover、真实IP与限流、TCP/UDP/gRPC/WebSocket、Catalog及观测闭环。章节/来源/代码语法/路线图数据和固定版本CRD schema也已检查。公网ACME签发与自动续期、Kubernetes/Swarm/AWS实际部署仍需相应测试环境，未将配置校验当作平台实测；具体证据和边界见[整改验收记录](../../../docs/traefik/reviews/39-chapters-remediation-2026-09-07.md)。
+本次整改在 Traefik 3.6.25 的隔离 Compose 环境验证了路径、HTTP/HTTPS认证、双腿mTLS与负向握手、证书轮换、WRR/镜像/Failover、真实IP与限流、TCP/UDP/gRPC/WebSocket、Catalog及观测闭环。章节/来源/代码语法/路线图数据和固定版本CRD schema也已检查。公网ACME签发与自动续期、Kubernetes/Swarm/AWS实际部署仍需相应测试环境，未将配置校验当作平台实测；具体证据和边界记录在本次整改验收记录中，该记录未随本仓库发布。
 
-上一版四册已归档到 `docs/traefik/archive/before-39-chapters/`，公开入口以本篇 39 章笔记为准。`guide.md` 是正式内容源文件，过程稿不应覆盖后续人工编辑。
+上一版四册已从公开目录下线，其归档位置不随本仓库发布，公开入口以本篇 39 章笔记为准。`guide.md` 是正式内容源文件，过程稿不应覆盖后续人工编辑。

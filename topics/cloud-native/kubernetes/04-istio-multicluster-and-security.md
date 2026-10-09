@@ -3174,7 +3174,7 @@ Provider 顺序很重要：写入时使用第一个 provider，读取时按顺�
 Pod Security 的核心是限制 Pod 和容器能向主机申请什么权限。实际理解时可以把它拆成三层：
 
 | 层次 | 作用域 | 控制内容 | 例子 |
-|---|---|---|
+|---|---|---|---|
 | Container-level SecurityContext | 只影响指定容器 | 容器进程权限和文件系统行为 | `privileged`、`capabilities`、`allowPrivilegeEscalation`、`readOnlyRootFilesystem` |
 | Pod-level SecurityContext | 影响 Pod 内全部容器和 Volume | 默认用户、组、SELinux、seccomp 和卷属主 | `runAsUser`、`runAsGroup`、`fsGroup`、`supplementalGroups`、`seccompProfile` |
 | 集群级 Pod 安全策略 | 准入时限制哪些声明可以被接受 | 对工作负载权限做统一约束 | 禁止特权容器、禁止 hostPath、限制 hostNetwork、限制 hostPorts |

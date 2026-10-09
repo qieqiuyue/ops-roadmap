@@ -42,5 +42,8 @@ fi
 for note in "${notes[@]}"; do
   output="${note%.md}-roadmap.html"
   python3 "${roadmap_builder}" "${note}" "${output}"
-  perl -0pi -e 's{<div class="meta">\s*}{<div class="meta">\n    <a class="back" href="../../../index.html">← 返回总览</a>\n    }' "${output}"
+  # Link back to the repository root index.html with the depth the output file actually has
+  # (notes live at topics/<category>/<note>.md or topics/<category>/<topic>/<note>.md).
+  back_href="$(python3 -c 'import os, sys; print(os.path.relpath(sys.argv[1], os.path.dirname(os.path.abspath(sys.argv[2]))).replace(os.sep, "/"))' "${repo_root}/index.html" "${output}")"
+  BACK_HREF="${back_href}" perl -0pi -e 's{<div class="meta">\s*}{<div class="meta">\n    <a class="back" href="$ENV{BACK_HREF}">← 返回总览</a>\n    }' "${output}"
 done

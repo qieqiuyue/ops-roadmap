@@ -17,7 +17,9 @@ while IFS= read -r -d '' topic_dir; do
     readme="${topic_dir}/README.md"
     [[ -f "${readme}" ]] || fail "missing README.md: ${topic_dir#"${repo_root}/"}"
     if [[ -f "${readme}" ]]; then
-      h1_count="$(rg -c '^# ' "${readme}" || true)"
+      # ripgrep is not installed everywhere; grep -c is an equivalent counter here.
+      h1_count="$(grep -c '^# ' "${readme}" || true)"
+      [[ -n "${h1_count}" ]] || h1_count=0
       [[ "${h1_count}" -eq 1 ]] || fail "README must have exactly one H1: ${readme#"${repo_root}/"}"
       [[ ! -e "${topic_dir}/README-roadmap.html" ]] || fail "README-roadmap.html must not exist: ${topic_dir#"${repo_root}/"}"
     fi

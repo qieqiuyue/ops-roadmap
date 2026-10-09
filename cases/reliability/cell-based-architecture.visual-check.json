@@ -6,7 +6,7 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/cell-based-architecture.html",
+    "path": "temp/archify/cell-based-architecture.html",
     "sha256": "9f9a3cf1d853c53f094c961f345e0f32ccd36e83cfa8aa0ffae8cc9d33f0ae92",
     "bytes": 721799
   },
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "/Users/luozijian/git/ops-roadmap/temp/archify/cell-based-architecture.html"
+        "artifact": "temp/archify/cell-based-architecture.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with signal SIGABRT\nChrome process: signal SIGABRT."

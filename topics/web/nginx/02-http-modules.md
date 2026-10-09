@@ -370,7 +370,7 @@ ngx_module_t *ngx_modules[] = {
 | `\d`                                                 | 匹配数字                  | `\d{3}` 匹配 "123"          |
 | `\b`                                                 | 匹配单词边界              | `\bword\b` 匹配独立的"word" |
 | `^`                                                  | 匹配字符串开始            | `^http` 匹配以"http"开头    |
-| `$` | 匹配字符串结束 | `\.html$` 匹配以".html"结尾 |                           |                               |
+| `$` | 匹配字符串结束 | `\.html$` 匹配以".html"结尾 |
 
 #### 3.5.2 重复
 
@@ -3194,7 +3194,7 @@ http {
 | `$arg_name`               | URL参数                           |
 | `$args`                   | 完整查询字符串                    |
 | `$is_args`                | 有参数时为"?",否则为空            |
-| `$query_string` | 同$args |                                   |
+| `$query_string` | 同$args |
 | `$uri`                    | 当前URI(不含参数)                 |
 | `$request_uri`            | 原始URI(含参数)                   |
 | `$request`                | 完整请求行                        |

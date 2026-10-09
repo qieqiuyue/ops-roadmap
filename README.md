@@ -57,7 +57,7 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 
 ## 内容导航
 
-根目录的 [`index.html`](./index.html) 是全部 Roadmap 的入口，包含 118 份标准路线图，以及 Linux 性能优化和 Kubernetes 的完整动画版。
+根目录的 [`index.html`](./index.html) 是全部 Roadmap 的入口，包含 118 份标准路线图，以及 Linux 性能优化和 Kubernetes 的完整动画版。知识版图的思维导图预览见 [`roadmap.md`](./roadmap.md)（覆盖 `topics/` 分类，其余目录见[仓库结构](#仓库结构)）。
 
 | 分类 | 主题 |
 | --- | --- |
@@ -77,6 +77,10 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 
 [`prompts/`](./prompts/) 收录七份面向 Agentic Coding 环境的模型专项提示词参考文档，覆盖 GPT-6 Astra（提示指南与 Agent 工作指令）、Codex / GPT-5.6、DeepSeek V4、Claude Fable 5.1、GLM-5.3 和 Kimi K3。资料库说明、模型用途、官方来源和安全提醒见 [`prompts/README.md`](./prompts/README.md)。这些文档是独立参考资料，不参与 `topics/` 学习笔记和 Roadmap 生成。
 
+
+## 面试与简历准备
+
+[`interview/`](./interview/) 收录从写简历、准备面试，到现场回答与事后复盘的整理笔记：说明面试官想了解什么，怎样用真实经历作答，以及如何复盘每一轮面试。
 ## 企业案例库（整理中）
 
 [`cases/`](./cases/) 收录来自公开技术分享和文章的企业实践，按可靠性、可观测性、DevOps、AIOps、云原生、FinOps 与工程管理分类。案例保留具体组织和场景的约束，`topics/` 则负责把多个案例进一步提炼成通用学习笔记。
@@ -112,10 +116,14 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 ```text
 .
 ├── index.html                      # 全部路线图入口
+├── roadmap.md                      # topics/ 知识版图思维导图
+├── AGENTS.md                       # 仓库约定与协作说明
 ├── assets/                         # README 等公共资源
 ├── cases/                          # 分类后的企业实践案例库
 ├── prompts/                        # 模型专项双语提示词资料库
+├── interview/                      # 面试与简历准备笔记
 ├── learning-paths/                 # 六条岗位学习路线、使用说明与截图
+├── docs/                           # 维护记录与代理约定（内部文档）
 ├── scripts/build-roadmaps.sh       # Roadmap 批量生成脚本
 └── topics/<category>/<topic>/
     ├── guide.md                    # 未分卷的 Markdown 笔记
@@ -147,5 +155,26 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 LEARNING_ROADMAP_BUILDER=/path/to/build_roadmap.py ./scripts/build-roadmaps.sh
 ```
 
+> [!WARNING]
+> 公开的 `build_roadmap.py` 与生成当前页面的版本**模板已不同**（新版本增加了 MathJax、可拖拽抽屉和编辑态样式），而 Markdown 解析部分与仓库中的载荷逐字节一致。因此**不要**直接运行 `./scripts/build-roadmaps.sh`：它会把 118 个页面整体换成新模板。内容改动请只刷新数据载荷：
+
+```bash
+LEARNING_ROADMAP_BUILDER=/path/to/build_roadmap.py ./scripts/refresh-roadmap-payloads.sh
+```
+
+该脚本同样支持传入具体笔记路径，并可用 `--check` 只报告过期载荷而不写入。
+
 > [!IMPORTANT]
 > `topics/systems/linux-performance/full-animated-roadmap.html` 和 `topics/cloud-native/kubernetes/full-animated-roadmap.html` 是保留的完整动画版，不会由普通批量生成命令重建。它们各自的 `roadmap-animations/` sidecar，以及存在的配套截图，需要与动画版一起维护。
+
+## 校验
+
+仓库的生成契约可以本地或 CI 校验（只需要 `python3`，不依赖 ripgrep）：
+
+```bash
+./scripts/validate-roadmaps.sh        # 笔记↔Roadmap 对账、回链深度、index 收录、载荷 JSON、标题与表格结构
+./scripts/validate-topic-readmes.sh   # 每个专题目录的 README 规则
+./scripts/validate-cases.sh           # 案例文件命名、唯一 H1 与分类 README 收录
+node --test learning-paths/tests/curriculum.test.cjs
+```
+

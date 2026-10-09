@@ -35,9 +35,28 @@ Regenerate standard roadmap HTML from the repository root with:
 After regeneration, verify that:
 
 - every formal Markdown note has one matching `*-roadmap.html`;
-- every roadmap has a relative `../../../index.html` back link;
+- every roadmap links back to the root `index.html` with a relative path that matches its own depth
+  (`../../index.html` for `topics/<category>/<note>-roadmap.html`, `../../../index.html` for
+  `topics/<category>/<topic>/<note>-roadmap.html`);
 - every roadmap is linked from the root `index.html`;
 - the embedded `<script id="data" type="application/json">` payload is valid JSON.
+
+Check the contract with:
+
+```bash
+./scripts/validate-roadmaps.sh
+```
+
+The published builder's Markdown parser matches the committed payloads byte for byte, but its HTML
+template has drifted (newer versions add MathJax, a resizable drawer and an edit mode). Running
+`./scripts/build-roadmaps.sh` therefore rewrites every page template. For content edits use:
+
+```bash
+LEARNING_ROADMAP_BUILDER=/path/to/build_roadmap.py ./scripts/refresh-roadmap-payloads.sh [note.md ...]
+```
+
+which regenerates only the embedded `<script id="data">` payload and leaves the rest of each page
+untouched. `--check` reports stale payloads without writing.
 
 `topics/cloud-native/kubernetes/full-animated-roadmap.html` is the preserved complete animation edition. Do not overwrite it with the standard roadmap builder. Keep its `roadmap-animations/` sidecar and screenshots together with it.
 
@@ -48,6 +67,13 @@ After regeneration, verify that:
 - Treat Markdown as the source of truth; do not hand-edit generated roadmap content when the source note can be fixed and regenerated.
 - Keep `README.md`, `index.html`, topic paths, and generated files synchronized after renames or splits.
 - Do not push, publish, or change GitHub settings unless the user explicitly asks.
+
+## Tooling prerequisites
+
+- `python3` for `scripts/validate-roadmaps.sh`, `scripts/validate-topic-readmes.sh`, `scripts/validate-cases.sh` and the roadmap builder.
+- `node` (with `node:test`) for `learning-paths/tests/curriculum.test.cjs`; `pytest` for `learning-paths/labs/tests/`.
+- `LEARNING_ROADMAP_BUILDER` must point at `build_roadmap.py` from the `learning-roadmap` skill; it is not vendored here.
+- The GitHub CLI (`gh`) needs `gh auth login` before issue operations.
 
 ## Agent skills
 

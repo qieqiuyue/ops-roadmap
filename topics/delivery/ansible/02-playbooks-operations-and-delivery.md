@@ -497,7 +497,7 @@ lookup 在控制节点上执行，不是在当前受管主机上。它可能读�
 
 | 旧写法 | 现代等价思路 | 注意事项 |
 | --- | --- | --- |
-| `with_items` | `loop: "{{ values | flatten(levels=1) }}"` | `loop` 不会隐式做完全相同的扁平化 |
+| `with_items` | `loop: "{{ values \| flatten(levels=1) }}"` | `loop` 不会隐式做完全相同的扁平化 |
 | `with_dict` | `dict2items` | 可以用 `key_name`、`value_name` 改字段名 |
 | `with_nested` | `product` | 先确认笛卡尔积不会爆炸 |
 | `with_subelements` | `subelements` | 为缺少子列表的数据设计默认值 |

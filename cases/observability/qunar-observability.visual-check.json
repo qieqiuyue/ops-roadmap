@@ -6,7 +6,7 @@
   "status": "fail",
   "visualReview": "pending",
   "artifact": {
-    "path": "/Users/luozijian/git/ops-roadmap/temp/archify/qunar-observability.html",
+    "path": "temp/archify/qunar-observability.html",
     "sha256": "8d1ac8c4a99be2939db8eb31125180da4185cb3c04bc0dfba2d51f78cd7ab318",
     "bytes": 720348
   },
@@ -24,7 +24,7 @@
       "severity": "error",
       "message": "visual-check could not complete its Chrome inspection.",
       "subject": {
-        "artifact": "/Users/luozijian/git/ops-roadmap/temp/archify/qunar-observability.html"
+        "artifact": "temp/archify/qunar-observability.html"
       },
       "evidence": {
         "reason": "Chrome DevTools process exit failed: Chrome closed with signal SIGABRT\nChrome process: signal SIGABRT."
