@@ -118,13 +118,16 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 ├── index.html                      # 全部路线图入口
 ├── roadmap.md                      # topics/ 知识版图思维导图
 ├── AGENTS.md                       # 仓库约定与协作说明
-├── assets/                         # README 等公共资源
+├── assets/                         # 首页预览图与 Roadmap 共享样式/脚本
 ├── cases/                          # 分类后的企业实践案例库
 ├── prompts/                        # 模型专项双语提示词资料库
 ├── interview/                      # 面试与简历准备笔记
 ├── learning-paths/                 # 六条岗位学习路线、使用说明与截图
 ├── docs/                           # 维护记录与代理约定（内部文档）
 ├── scripts/build-roadmaps.sh       # Roadmap 批量生成脚本
+├── scripts/refresh-roadmap-payloads.sh  # 仅刷新页面内嵌数据载荷
+├── scripts/validate-roadmaps.sh    # 生成契约校验（笔记、回链、index、载荷、表格）
+├── scripts/build-roadmap-md.sh     # 由 index.html catalog 生成 roadmap.md
 └── topics/<category>/<topic>/
     ├── guide.md                    # 未分卷的 Markdown 笔记
     ├── guide-roadmap.html          # 未分卷的 Roadmap
@@ -176,5 +179,11 @@ LEARNING_ROADMAP_BUILDER=/path/to/build_roadmap.py ./scripts/refresh-roadmap-pay
 ./scripts/validate-topic-readmes.sh   # 每个专题目录的 README 规则
 ./scripts/validate-cases.sh           # 案例文件命名、唯一 H1 与分类 README 收录
 node --test learning-paths/tests/curriculum.test.cjs
+./scripts/validate-cases.sh --strict  # 案例来源行缺失时作为门禁失败
+./scripts/build-roadmap-md.sh         # 重新生成 roadmap.md（--check 只检查是否过期）
 ```
+
+页面共享的样式与脚本集中在 [`assets/roadmap.css`](./assets/roadmap.css) 与 [`assets/roadmap.js`](./assets/roadmap.js)；
+第三方库固定到精确版本并带 `integrity`（MathJax 3.2.2、marked 15.0.12、highlight.js 11.9.0），
+Mermaid 因 ESM 分片加载只固定版本。学习路线页还提供进度导出/导入。
 

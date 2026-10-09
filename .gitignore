@@ -1,2 +1,11 @@
 .DS_Store
 .local-cache/
+
+# Locally generated diagram renders, visual-check evidence and their screenshots
+# are produced on demand and are not part of the published repository.
+cases/**/*.html
+cases/**/*.visual-check.json
+cases/**/*.visual-check.*.png
+
+# Local test caches
+.pytest_cache/

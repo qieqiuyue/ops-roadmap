@@ -41,6 +41,15 @@ After regeneration, verify that:
 - every roadmap is linked from the root `index.html`;
 - the embedded `<script id="data" type="application/json">` payload is valid JSON.
 
+`topics/cloud-native/kubernetes/full-animated-roadmap.html` is the preserved complete animation edition. Do not overwrite it with the standard roadmap builder. Keep its `roadmap-animations/` sidecar and screenshots together with it.
+
+The 118 standard pages share their stylesheet and application script in `assets/roadmap.css` and
+`assets/roadmap.js`; the payload refresh above does not touch them. Third-party libraries are pinned
+to exact versions (`mathjax@3.2.2`, `marked@15.0.12`, `highlight.js@11.9.0`) and carry
+`integrity`/`crossorigin`; Mermaid is pinned only, because its ESM entry loads a sibling chunk.
+`roadmap.md` is generated from the `index.html` catalog by `./scripts/build-roadmap-md.sh` and is
+checked by `./scripts/validate-roadmaps.sh`.
+
 Check the contract with:
 
 ```bash

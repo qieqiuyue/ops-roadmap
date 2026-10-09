@@ -1,5 +1,7 @@
 # Prometheus和Zabbix的对比选型
 
+> 来源：未核验 · 类型：分享 · 状态：draft
+
 
 ## 分享概述
 

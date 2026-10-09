@@ -86,6 +86,15 @@ const catalog = [
 const catalogEl=document.getElementById('catalog');
 const filtersEl=document.getElementById('filters');
 let active='all';
+const urlState=new URLSearchParams(location.search);
+function syncUrl(){
+  const params=new URLSearchParams();
+  if(active&&active!=='all')params.set('topic',active);
+  const query=document.getElementById('search').value.trim();
+  if(query)params.set('q',query);
+  const search=params.toString();
+  history.replaceState(null,'',search?location.pathname+'?'+search:location.pathname);
+}
 function sourceFor(href){return href.replace(/-roadmap\.html$/,'.md')}
 function render(){
   catalogEl.innerHTML=catalog.map(category=>`<section class="category" data-category="${category.id}"><h2 class="category-title">${category.name}</h2><div class="grid">${category.topics.map(topic=>`<article class="topic" data-search="${(category.name+' '+topic.name+' '+topic.items.map(i=>i[0]).join(' ')).toLowerCase()}"><div class="topic-head"><h3>${topic.name}</h3><span class="count">${topic.items.length} 册</span></div><div class="links">${topic.special?`<a class="roadmap special" href="${topic.special[1]}"><span><strong>${topic.special[0]}</strong><small>包含交互教学动画</small></span><span class="arrow">→</span></a>`:''}${topic.items.map(item=>`<div><a class="roadmap" href="${item[1]}"><span><strong>${item[0]}</strong><small>交互式学习路线图</small></span><span class="arrow">→</span></a><a class="source" href="${sourceFor(item[1])}">查看 Markdown 源文档</a></div>`).join('')}</div></article>`).join('')}</div></section>`).join('');
@@ -98,11 +107,18 @@ function applyFilter(){
     section.querySelectorAll('.topic').forEach(card=>{const show=(active==='all'||section.dataset.category===active)&&(!q||card.dataset.search.includes(q));card.classList.toggle('hidden',!show);if(show)visible++});
     section.classList.toggle('hidden',visible===0);
   });
+  syncUrl();
 }
 filtersEl.innerHTML=[['all','全部'],...catalog.map(c=>[c.id,c.name])].map(([id,name])=>`<button class="filter ${id==='all'?'active':''}" data-id="${id}">${name}</button>`).join('');
 filtersEl.addEventListener('click',event=>{const button=event.target.closest('.filter');if(!button)return;active=button.dataset.id;document.querySelectorAll('.filter').forEach(item=>item.classList.toggle('active',item===button));applyFilter()});
 document.getElementById('search').addEventListener('input',applyFilter);
 render();
+if(urlState.get('topic')&&[...catalog.map(c=>c.id)].includes(urlState.get('topic'))){
+  active=urlState.get('topic');
+  document.querySelectorAll('.filter').forEach(item=>item.classList.toggle('active',item.dataset.id===active));
+}
+if(urlState.get('q'))document.getElementById('search').value=urlState.get('q');
+applyFilter();
 </script>
 </body>
 </html>

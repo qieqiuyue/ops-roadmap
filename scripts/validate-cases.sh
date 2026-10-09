@@ -5,6 +5,16 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cases_root="${repo_root}/cases"
 errors=0
+warnings=0
+strict=0
+if [[ "${1:-}" == "--strict" ]]; then
+  strict=1
+fi
+
+warn() {
+  echo "WARN:  $*" >&2
+  warnings=$((warnings + 1))
+}
 
 fail() {
   echo "ERROR: $*" >&2
@@ -29,6 +39,21 @@ while IFS= read -r -d '' case_file; do
   if [[ ! "${first_line}" =~ ^#\  ]]; then
     fail "first line is not H1: cases/${relative}"
   fi
+  # Every case must declare provenance and status right after the H1.
+  source_line="$(grep -m1 '^> 来源：' "${case_file}" || true)"
+  if [[ -z "${source_line}" ]]; then
+    if (( strict )); then
+      fail "missing source line ('> 来源：... · 类型：... · 状态：...'): cases/${relative}"
+    else
+      warn "missing source line: cases/${relative}"
+    fi
+  else
+    status="$(sed -E 's/.*状态：([^ ·]+).*/\1/' <<<"${source_line}")"
+    case "${status}" in
+      draft|reviewed|verified) ;;
+      *) fail "unknown status '${status}' (expected draft|reviewed|verified): cases/${relative}" ;;
+    esac
+  fi
 
   # ripgrep is not installed everywhere; grep -F is an equivalent fixed-string search here.
   if ! grep -Fq -- "(./${filename})" "${cases_root}/${category}/README.md"; then
@@ -41,8 +66,8 @@ done < <(
 case_count="$(find "${cases_root}" -mindepth 2 -maxdepth 2 -type f -name '*.md' ! -name 'README.md' | wc -l | tr -d ' ')"
 
 if (( errors > 0 )); then
-  echo "Case validation failed: ${errors} error(s)." >&2
+  echo "Case validation failed: ${errors} error(s), ${warnings} warning(s)." >&2
   exit 1
 fi
 
-echo "Case validation passed: ${case_count} case files."
+echo "Case validation passed: ${case_count} case files (${warnings} warning(s))."

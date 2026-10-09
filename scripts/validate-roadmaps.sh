@@ -10,7 +10,8 @@
 #   5. every note has exactly one H1;
 #   6. every note has balanced code fences (an even number of ``` / ~~~ markers);
 #   7. markdown tables keep a consistent column count inside each contiguous block;
-#   8. every note H2 chapter title appears in its roadmap payload.
+#   8. every note H2 chapter title appears in its roadmap payload;
+#   9. roadmap.md matches the catalog embedded in index.html.
 #
 # Only python3 is required (no ripgrep, no node).
 #
@@ -19,7 +20,7 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 python3 - "${repo_root}" <<'PY'
-import collections, json, os, re, sys
+import collections, json, os, re, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(sys.argv[1])
@@ -133,6 +134,13 @@ for note in notes:
             match = re.match(r"^##\s+(\S.*?)\s*$", line)
             if match and match.group(1).replace(" ", "") not in payload_text.replace(" ", ""):
                 fail(f"chapter missing from roadmap payload: {rel(note)} -> {match.group(1)}")
+
+# 9. roadmap.md must match the catalog embedded in index.html
+child_env = dict(os.environ, PYTHONIOENCODING="utf-8", PYTHONUTF8="1")
+generated = subprocess.run(["bash", "scripts/build-roadmap-md.sh", "--check"],
+                           cwd=str(ROOT), capture_output=True, env=child_env)
+if generated.returncode != 0:
+    fail("roadmap.md is stale; run ./scripts/build-roadmap-md.sh")
 
 if errors:
     for error in errors:
