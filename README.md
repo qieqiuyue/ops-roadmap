@@ -17,7 +17,6 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 
 > [!NOTE]
 > 运维与平台工程涉及的领域非常广泛，本仓库不以构建完整知识体系为目标。现有内容主要反映我的个人学习路径、工作经验和关注方向，难免存在遗漏，也会随着学习进度持续补充和修订。
-
 ![Ops Roadmap 首页预览](./assets/index-preview.png)
 
 ## 核心特性
@@ -41,8 +40,12 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 2. 启动本地静态服务：
 
    ```bash
-   python3 -m http.server 8000
+   ./scripts/serve.sh 8000
    ```
+
+   它会为所有文本响应补上 `charset=utf-8`：`python3 -m http.server` 对 `.md` 只返回
+   `text/markdown` 而不带字符集，浏览器会回退到系统默认编码，中文在部分环境（例如中文 Windows）
+   会显示成乱码。若不想用脚本，`python3 -m http.server 8000` 仍可运行，但打开 `.md` 链接可能乱码。
 
 3. 打开 <http://127.0.0.1:8000/>。
 
