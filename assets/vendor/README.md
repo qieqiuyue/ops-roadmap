@@ -9,6 +9,8 @@ CDN 受限的环境下也能正常渲染（代码高亮、Mermaid 图表、数�
 | `marked-15.0.12.min.js` | `https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js` | 39,903 | MIT | `sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+` |
 | `highlight-11.9.0.min.js` | `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js` | 121,727 | BSD-3-Clause | `sha384-F/bZzf7p3Joyp5psL90p/p89AZJsndkSoGwRpXcZhleCWhd8SnRuoYo4d0yirjJp` |
 | `highlight-11.9.0-atom-one-dark.min.css` | `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/atom-one-dark.min.css` | 856 | BSD-3-Clause | `sha384-oaMLBGEzBOJx3UHwac0cVndtX5fxGQIfnAeFZ35RTgqPcYlbprH9o9PUV/F8Le07` |
+| `highlight-11.9.0-lang-nginx.min.js` | `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/nginx.min.js` | 1,621 | BSD-3-Clause | `sha384-p6UV3HZc7zs9wUF6j4Knk3bpx1/JnhlwDoFnKJAOogB1cUi32u31NlnZ2s2dW8IR` |
+| `highlight-11.9.0-lang-dockerfile.min.js` | `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/dockerfile.min.js` | 520 | BSD-3-Clause | `sha384-H3wUmCndJNBOuIIzcLSr2zLLZYs8PYuw6qKyENk7THEnYQJvOMDBu42P9XsJSRKw` |
 | `mermaid-10.9.8.min.js` | `https://cdn.jsdelivr.net/npm/mermaid@10.9.8/dist/mermaid.min.js` | 3,337,857 | MIT | `sha384-N3QqR/7q+xm3BGX+CBbNI8AUmRRqcsDzToy+0z1NLDI0QmTKW8zvwLvqulJgk3dP` |
 
 ## 与 CDN 版本的差异说明
@@ -20,6 +22,19 @@ CDN 受限的环境下也能正常渲染（代码高亮、Mermaid 图表、数�
   真正的实现在按需加载的兄弟分片里；本地化会引入分片图。UMD 单文件同样通过
   `window.mermaid` 暴露 `initialize` / `run`，与页面现有用法一致，代价是文件更大。
 - 页面不再使用 `integrity` / `crossorigin`：资源与页面同源，SRI 不再提供额外保护。
+
+## 代码高亮语言覆盖
+
+`highlight.min.js` 是 common 包，内置 bash / yaml / python / c / json / go / sql / ini 等常用语言；
+笔记里还用到的两种语言需要单独加载模块（已随仓库发布，紧跟核心脚本之后引入）：
+
+- `nginx`（约 206 个围栏）→ `highlight-11.9.0-lang-nginx.min.js`
+- `dockerfile`（约 137 个围栏）→ `highlight-11.9.0-lang-dockerfile.min.js`
+
+**已知未覆盖**：`promql`（约 305 个围栏）与 `hcl` 在 highlight.js 中没有对应实现（cdn-release 无独立
+模块，全量构建也没有），这两类围栏会退化为无高亮，并在控制台打印一条警告。可选的收敛方式是把这些
+围栏语言改成 `text`（改动正文，约 400 处），或在 `assets/roadmap.js` 里注册最小语法——当前选择保留
+原样并在本文件记录。
 
 ## 升级流程
 
