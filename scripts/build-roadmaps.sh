@@ -36,7 +36,9 @@ notes=()
 if [[ "${#args[@]}" -gt 0 ]]; then
   # Validate the complete explicit selection before writing any output.
   for requested_note in "${args[@]}"; do
-    note="$(python3 -c 'from pathlib import Path; import sys; print(Path(sys.argv[1]).resolve())' "${requested_note}")"
+    # `pwd` keeps the platform's native form (C:/... on Git Bash) so the case below matches
+    # repo_root; `Path.resolve()` would emit a backslash path that never matches.
+    note="$(cd "$(dirname "${requested_note}")" 2>/dev/null && pwd)/$(basename "${requested_note}")"
     case "${note}" in
       "${repo_root}/topics/"*.md) ;;
       *) echo "Note must be a Markdown file under topics/: ${requested_note}" >&2; exit 1 ;;

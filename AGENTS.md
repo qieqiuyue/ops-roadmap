@@ -43,7 +43,7 @@ After regeneration, verify that:
 
 `topics/cloud-native/kubernetes/full-animated-roadmap.html` is the preserved complete animation edition. Do not overwrite it with the standard roadmap builder. Keep its `roadmap-animations/` sidecar and screenshots together with it.
 
-The 118 standard pages share their stylesheet and application script in `assets/roadmap.css` and
+The 126 standard pages share their stylesheet and application script in `assets/roadmap.css` and
 `assets/roadmap.js`; the payload refresh above does not touch them. All third-party libraries are
 vendored under `assets/vendor/` (MathJax 3.2.2 `tex-svg`, marked 15.0.12, highlight.js 11.9.0 and
 Mermaid 10.9.8 UMD), so pages make no external requests and work offline; `assets/vendor/README.md`

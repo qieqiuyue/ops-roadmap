@@ -4,9 +4,9 @@
 
 **一份持续整理的个人运维学习笔记与交互式路线图合集。**
 
-![Topics](https://img.shields.io/badge/topics-39-1f2933?style=flat-square)
-![Markdown notes](https://img.shields.io/badge/markdown_notes-118-1f2933?style=flat-square)
-![Roadmaps](https://img.shields.io/badge/roadmaps-118-f4c95d?style=flat-square)
+![Topics](https://img.shields.io/badge/topics-42-1f2933?style=flat-square)
+![Markdown notes](https://img.shields.io/badge/markdown_notes-126-1f2933?style=flat-square)
+![Roadmaps](https://img.shields.io/badge/roadmaps-126-f4c95d?style=flat-square)
 [![License: MIT](https://img.shields.io/badge/license-MIT-8bcf8b?style=flat-square)](./LICENSE)
 
 [快速开始](#快速开始) · [新手学习路线](#新手学习路线) · [内容导航](#内容导航) · [提示词资料库](#提示词资料库) · [案例库](#企业案例库整理中) · [生成方式](#内容如何生成) · [仓库结构](#仓库结构)
@@ -60,20 +60,21 @@ Ops Roadmap 是我在学习和实践过程中整理的个人知识库，目前�
 
 ## 内容导航
 
-根目录的 [`index.html`](./index.html) 是全部 Roadmap 的入口，包含 118 份标准路线图，以及 Linux 性能优化和 Kubernetes 的完整动画版。知识版图的思维导图预览见 [`roadmap.md`](./roadmap.md)（覆盖 `topics/` 分类，其余目录见[仓库结构](#仓库结构)）。
+根目录的 [`index.html`](./index.html) 是全部 Roadmap 的入口，包含 126 份标准路线图，以及 Linux 性能优化和 Kubernetes 的完整动画版。知识版图的思维导图预览见 [`roadmap.md`](./roadmap.md)（覆盖 `topics/` 分类，其余目录见[仓库结构](#仓库结构)）。
 
 | 分类 | 主题 |
 | --- | --- |
 | 系统基础 | [计算机网络基础](./topics/systems/network-fundamentals/README.md) · [容器核心技术](./topics/systems/container-fundamentals/README.md) · [Linux 底层原理](./topics/systems/linux/README.md) · [Linux 性能优化](./topics/systems/linux-performance/README.md) · [eBPF 运维与故障排查](./topics/systems/ebpf/README.md) |
 | 架构设计 | [架构设计学习指南](./topics/architecture/README.md) |
-| 云原生 | [Docker](./topics/cloud-native/docker/README.md) · [Helm](./topics/cloud-native/helm/README.md) · [Kubernetes](./topics/cloud-native/kubernetes/README.md) · [Kubernetes 容器网络](./topics/cloud-native/kubernetes-networking/README.md) · [Consul](./topics/cloud-native/consul/README.md) · [etcd](./topics/cloud-native/etcd/README.md) · [Terraform](./topics/cloud-native/terraform/README.md) |
+| 云原生 | [Docker](./topics/cloud-native/docker/README.md) · [Helm](./topics/cloud-native/helm/README.md) · [Kubernetes](./topics/cloud-native/kubernetes/README.md) · [Kubernetes 容器网络](./topics/cloud-native/kubernetes-networking/README.md) · [CoreDNS](./topics/cloud-native/coredns/README.md) · [Consul](./topics/cloud-native/consul/README.md) · [etcd](./topics/cloud-native/etcd/README.md) · [Terraform](./topics/cloud-native/terraform/README.md) |
 | 可观测性 | [ELK 与 OpenSearch](./topics/observability/elk/README.md) · [Loki](./topics/observability/loki/README.md) · [OpenTelemetry](./topics/observability/otel/README.md) · [Prometheus](./topics/observability/prometheus/README.md) · [Kube-Prometheus](./topics/observability/kube-prometheus/README.md) · [VictoriaMetrics](./topics/observability/victoria-metrics/README.md) · [VictoriaMetrics Flags](./topics/observability/victoria-metrics-flags/README.md) · [VictoriaMetrics PromQL](./topics/observability/victoria-metrics-promql/README.md) |
+| 可靠性 | [SRE 思维导图](./topics/reliability/sre/README.md) |
 | 数据系统 | [MySQL](./topics/data-systems/mysql/README.md) · [Kafka](./topics/data-systems/kafka/README.md) · [RabbitMQ](./topics/data-systems/rabbitmq/README.md) |
 | 编程与自动化 | [Python 运维自动化与工程实践](./topics/programming/python-for-operations/README.md) · [Go 运维开发与云原生工程](./topics/programming/go-for-operations/README.md) |
 | 持续交付 | [Ansible](./topics/delivery/ansible/README.md) · [Jenkins](./topics/delivery/jenkins/README.md) · [GitOps](./topics/delivery/gitops/README.md) · [Argo CD](./topics/delivery/argo-cd/README.md) · [交付治理与容量保障](./topics/delivery/delivery-governance/README.md) · [AI 原生 SDLC](./topics/delivery/ai-native-sdlc/README.md) |
 | Web 基础设施 | [Nginx](./topics/web/nginx/README.md) · [Traefik](./topics/web/traefik/README.md) |
 | AI 基础设施 | [GPU AI Infrastructure](./topics/ai-infrastructure/gpu/README.md) |
-| AIOps | [LLM-AIOps 中文学习路线](./topics/aiops/llm-aiops/README.md) |
+| AIOps | [AIOps 的一些理解](./topics/aiops/fundamentals/README.md) · [LLM-AIOps 中文学习路线](./topics/aiops/llm-aiops/README.md) |
 | AI Agent | [DeepAgent](./topics/ai-agents/deepagent/README.md) · [Claude Agent SDK](./topics/ai-agents/claude-agent-sdk/README.md) · [Agent 扩展工程：Skills 与 MCP](./topics/ai-agents/agent-extensions/README.md) |
 
 ## 提示词资料库
