@@ -69,7 +69,7 @@ for note in "${notes[@]}"; do
     LEARNING_ROADMAP_BUILDER="${roadmap_builder}" bash "${repo_root}/scripts/refresh-roadmap-payloads.sh" "${note}"
     continue
   fi
-  python3 "${roadmap_builder}" "${note}" "${output}"
+  PYTHONIOENCODING=utf-8 python3 "${roadmap_builder}" "${note}" "${output}"
   # Link back to the repository root index.html with the depth the output file actually has
   # (notes live at topics/<category>/<note>.md or topics/<category>/<topic>/<note>.md).
   back_href="$(python3 -c 'import os, sys; print(os.path.relpath(sys.argv[1], os.path.dirname(os.path.abspath(sys.argv[2]))).replace(os.sep, "/"))' "${repo_root}/index.html" "${output}")"

@@ -103,6 +103,6 @@ for note in "${notes[@]}"; do
     continue
   fi
   generated="${tmp_dir}/$(basename "${roadmap}")"
-  python3 "${roadmap_builder}" "${note}" "${generated}" > /dev/null
+  PYTHONIOENCODING=utf-8 python3 "${roadmap_builder}" "${note}" "${generated}" > /dev/null
   refresh "${generated}" "${roadmap}"
 done
